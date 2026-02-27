@@ -1,28 +1,19 @@
-/*
-Application entry point.
-
-This is the first method executed by the JVM
-when the program starts.
-
-@author Developer
-@Version 1.0
- */
+import java.util.*;
 
 import java.util.*;
 public class PalindromeCheckerApp {
     public static void main(String [] args){
-        String input = "civic";   // change word here
-        Queue<Character> queue = new LinkedList<>();
+        String input = "noon";
         Stack<Character> stack = new Stack<>();
+
         for (char c : input.toCharArray())
         {
-            queue.add(c);
             stack.push(c);
         }
         boolean isPalindrome = true;
-        while (!queue.isEmpty())
+        for (char c : input.toCharArray())
         {
-            if (queue.remove() != stack.pop())
+            if (c != stack.pop())
             {
                 isPalindrome = false;
                 break;
@@ -30,5 +21,6 @@ public class PalindromeCheckerApp {
         }
         System.out.println("Input: " + input);
         System.out.println("Is Palindrome? " + isPalindrome);
+
     }
 }
