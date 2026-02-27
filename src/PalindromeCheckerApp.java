@@ -1,13 +1,4 @@
-/*
-Application entry point.
-
-This is the first method executed by the JVM
-when the program starts.
-
-@author Developer
-@Version 1.0
- */
-
+import java.util.*;
 
 
 import java.util.*;
