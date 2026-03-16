@@ -1,8 +1,12 @@
-public class PalindromeCheckerApp {
+import java.util.*;
 
+public class PalindromeCheckerApp {
     public static void main(String[] args) {
 
-        String input = "madam";
+        String input = "A man a plan a canal Panama";
+
+
+        input = input.replaceAll("\\s+", "").toLowerCase();
 
         boolean result = check(input, 0, input.length() - 1);
 
@@ -10,20 +14,20 @@ public class PalindromeCheckerApp {
         System.out.println("Is Palindrome? : " + result);
     }
 
-    // Recursive method
+
     private static boolean check(String s, int start, int end) {
 
-        // Base condition
+
         if (start >= end) {
             return true;
         }
 
-        // If mismatch found
+
         if (s.charAt(start) != s.charAt(end)) {
             return false;
         }
 
-        // Recursive call
+
         return check(s, start + 1, end - 1);
     }
 }
