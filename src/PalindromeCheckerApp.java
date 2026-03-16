@@ -1,37 +1,33 @@
-import java.util.*;
+import java.util.Scanner;
 
 public class PalindromeCheckerApp {
 
-    // Inner class for encapsulation
-    static class PalindromeChecker {
+    // Method to check palindrome
+    public static boolean isPalindrome(String text) {
 
-        public boolean checkPalindrome(String input) {
-            input = input.replaceAll("\\s+", "").toLowerCase();
-            return check(input, 0, input.length() - 1);
-        }
+        // Normalize text: remove non-letters and convert to lowercase
+        text = text.replaceAll("[^a-zA-Z0-9]", "").toLowerCase();
 
-        private boolean check(String s, int start, int end) {
+        // Reverse the string
+        String reversed = new StringBuilder(text).reverse().toString();
 
-            if (start >= end) {
-                return true;
-            }
-
-            if (s.charAt(start) != s.charAt(end)) {
-                return false;
-            }
-
-            return check(s, start + 1, end - 1);
-        }
+        // Compare original and reversed
+        return text.equals(reversed);
     }
 
     public static void main(String[] args) {
 
-        String input = "racecar";
+        Scanner scanner = new Scanner(System.in);
 
-        PalindromeChecker checker = new PalindromeChecker();
-        boolean result = checker.checkPalindrome(input);
+        System.out.print("Enter a word or sentence: ");
+        String input = scanner.nextLine();
 
-        System.out.println("input: " + input);
-        System.out.println("Is Palindrome? : " + result);
+        if (isPalindrome(input)) {
+            System.out.println("It is a palindrome ✅");
+        } else {
+            System.out.println("It is NOT a palindrome ❌");
+        }
+
+        scanner.close();
     }
 }
